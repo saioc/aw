@@ -1,0 +1,135 @@
+ <html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>在线短网址生成,短网址还原,短链接生成,短链接还原,短地址生成 - newjson.com</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="http://www.newjson.com/Skins/admin2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="http://www.newjson.com/Skins/admin2/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="http://www.newjson.com/Skins/admin2/dist/css/sb-admin-2.css" rel="stylesheet">
+ 
+    <!-- Custom Fonts -->
+    <link href="http://www.newjson.com/Skins/admin2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <style>
+      .menudisable {
+       display:none
+      }
+      h4 {
+          font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+          font-size: 14px;
+          line-height: 1.42857143;
+          margin-top: 0px;
+          margin-bottom: 0px;
+      }
+      .media-heading {
+          margin-bottom: 0px;
+      }
+      .top10 {
+      margin-top:10px;
+      }
+    
+  </style>
+    
+<meta name="keywords" content="短链在线生成,短链在线生成器,短网址在线生成,在线短网址生成,短网址还原,短链接生成,短链接还原,短地址生成">
+<meta name="description" content="短链在线生成,短链在线生成器,短网址在线生成,在线短网址生成,短网址还原,短链接生成,短链接还原,短地址生成">
+
+ </head>
+<body style="">
+    <div id="wrapper">
+        <!-- Navigation -->
+        
+        <div id="page-wrapper" style="min-height: 248px;">
+            <div style="margin-bottom: 30px; margin-bottom: 20px; background-color: #fff; border: 1px solid transparent;"></div>
+            
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        短网址生成还原</h4>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">转换前</span>
+                <input type="text" id="content" class="form-control" placeholder="要转换的url" aria-describedby="basic-addon1">
+            </div>
+            <div class="btn-group" style="margin-top: 10px;" role="group" aria-label="...">
+                <button type="button" class="btn btn-primary" onclick="encode();">
+                    短地址转换</button>
+ 
+ 
+            </div>
+            <div class="input-group" style="margin-top: 10px;">
+                <span class="input-group-addon" id="basic-addon1">转换后</span>
+                <input type="text" class="form-control" id="result" placeholder="转换后的url" aria-describedby="basic-addon1">
+            </div>
+        </div>
+        <div class="panel-footer">
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        function encode() {
+
+            $.getJSON('https://wosuo.net/api/?key=OGT205cMAO6V&url=' + jQuery("#content").val(), function (d) {
+                    $("#result").val(d[0].short);
+            })
+          
+        }
+ 
+
+ 
+
+        function GetFocus() {
+            document.getElementById('content').focus();
+        }
+    </script>
+ 
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+ <script type="text/javascript" src="https://www.nowapi.com/style/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+     $.ajax({
+        type          : 'get',
+        async         : false,
+        url           : 'http://api.k780.com/?app=shorturl.set&url=' + jQuery("#content").val()'&appkey=APPKEY&sign=SIGN&format=json&jsoncallback=data',
+        dataType      : 'jsonp',
+        jsonp         : 'callback',
+        jsonpCallback : 'data',
+        success       : function(data){
+            if(data.success!='1'){
+                alert(data.msgid+' '+data.msg);
+                exit;
+            }
+            //遍历
+            var description = "";
+            for(var i in data.result){
+                var property=data.result[i];
+                description+=i+" = "+property+"\n";
+            }
+            alert(description);
+        },
+        error:function(){
+            alert('fail');
+        }
+    });
+});
+</script>
+
+</body></html>
